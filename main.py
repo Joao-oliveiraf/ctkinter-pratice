@@ -1,16 +1,27 @@
 import customtkinter
 
-customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
-customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
 
-app = customtkinter.CTk()  # create CTk window like you do with the Tk window
-app.geometry("400x240")
+class App(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title('Meu programa')
+        self.geometry("750x350")
+        self.grid_columnconfigure((0, 1), weight=0)
 
-def button_function():
-    print("button pressed")
+        self.button = customtkinter.CTkButton(self, text='Login', command=self.hello)
+        self.button.grid(row=3, column=0, pady=20, padx=20, sticky='ew', columnspan=2)
 
-# Use CTkButton instead of tkinter Button
-button = customtkinter.CTkButton(master=app, text="CTkButton", command=button_function)
-button.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
 
+
+    def hello(self):
+        print('Button pressed!')
+
+
+class CheckboxFrame(customtkinter.CTkFrame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        self.checkbox_1 = customtkinter.CTkCheckBox(text='Option 1', padx=20, pady=(0, 20))
+
+app = App()
 app.mainloop()
