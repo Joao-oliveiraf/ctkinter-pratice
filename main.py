@@ -9,9 +9,14 @@ class App(customtkinter.CTk):
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        self.checkbox_frame = CheckboxFrame(self)
-        self.checkbox_frame.grid(row=0, column=0, padx=10, pady=(10, 0), sticky='nsw')
+        # Frames com checkbox
+        self.checkbox_frame = CheckboxFrame(self, values=['Value 1', 'Value 2', 'Value 3'])
+        self.checkbox_frame.grid(row=0, column=0, padx=10, pady=(10, 0), sticky='nsew')
 
+        self.checkbox_frame2 = CheckboxFrame(self, values=['Option 1', 'Option 2'])
+        self.checkbox_frame2.grid(row=0, column=1, padx=10, pady=(10, 0), sticky='nsew')
+
+        # Buttons
         self.button = customtkinter.CTkButton(self, text='Login', command=self.hello)
         self.button.grid(row=1, column=0, pady=20, padx=20, sticky='ew', columnspan=2)
 
@@ -39,10 +44,10 @@ class CheckboxFrame(customtkinter.CTkFrame):
 
         #self.checkbox_1 = customtkinter.CTkCheckBox(master=self, text='Option 1', hover_color='green')
         #self.checkbox_1.grid(row=0, column=0, padx=10, pady=(10, 0), sticky='w')
-        self.checkbox_2 = customtkinter.CTkCheckBox(master=self, text='Option 2', hover_color='green')
-        self.checkbox_2.grid(row=1, column=0, padx=10, pady=(10, 0), sticky='w')
-        self.checkbox_3 = customtkinter.CTkCheckBox(master=self, text='Option 3', hover_color='green')
-        self.checkbox_3.grid(row=2, column=0, padx=10, pady=(10, 0), sticky='w')
+        #self.checkbox_2 = customtkinter.CTkCheckBox(master=self, text='Option 2', hover_color='green')
+        #self.checkbox_2.grid(row=1, column=0, padx=10, pady=(10, 0), sticky='w')
+        #self.checkbox_3 = customtkinter.CTkCheckBox(master=self, text='Option 3', hover_color='green')
+        #self.checkbox_3.grid(row=2, column=0, padx=10, pady=(10, 0), sticky='w')
 
 
 app = App()
